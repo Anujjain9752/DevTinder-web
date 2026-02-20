@@ -5,3 +5,7 @@
 - we will be using tailwind css ( i tried to installation)
 - we will be using daisy UI
 - Add Navbar component to App.jsx
+- create a nav bar . jsx
+- Installed react router dom 
+- create browserRouter > Routes > Route=/Body > RouteChildren
+- craetea an Outlet 
