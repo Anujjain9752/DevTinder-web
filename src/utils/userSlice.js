@@ -8,8 +8,7 @@ const userSlice = createSlice({
       return action.payload;
     },
 
-    // eslint-disable-next-line no-unused-vars
-    removeUser: (_state, action) => {
+    removeUser: (state, action) => {
       return null;
     },
   },
