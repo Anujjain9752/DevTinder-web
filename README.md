@@ -44,3 +44,11 @@
 4th lecture -> 
 new page to see al my connections
 new page to see all my conenctions requests
+feture - to accpet and reject conenction request
+
+
+
+remaning -> 
+send / ignore the user card form the feed
+signup new user
+e2e testing
