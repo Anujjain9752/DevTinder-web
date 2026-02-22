@@ -35,20 +35,17 @@ const Connections = () => {
     <div className="text-center justify-center my-10">
       <h1 className="text-bold text-2xl ">Connections</h1>
       {connections.map((connection) => {
-        
-          const {firstName, lastName, photoUrl, age, gender , about} = connection;
-        return(
-        <div className="m-4 p-4 rounded-lg bg-base-200">
-           
-         <img alt="photo" className="w-20 h-20" src={connection.photoUrl} />
-         <h2>{firstName+" "+lastName}</h2>
-         {age && gender && <p>{age+ " , "+gender}</p>}
-         <p>{about}</p>
-          
-
-
-        </div>)
-})}
+        const { _id, firstName, lastName, photoUrl, age, gender, about } =
+          connection;
+        return (
+          <div key={_id} className="m-4 p-4 rounded-lg bg-base-200">
+            <img alt="photo" className="w-20 h-20" src={connection.photoUrl} />
+            <h2>{firstName + " " + lastName}</h2>
+            {age && gender && <p>{age + " , " + gender}</p>}
+            <p>{about}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };

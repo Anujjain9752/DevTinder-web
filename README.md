@@ -42,4 +42,5 @@
 
 
 4th lecture -> 
-see all my connections 
+new page to see al my connections
+new page to see all my conenctions requests
