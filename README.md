@@ -35,3 +35,11 @@
 - Logout
 - get the feed and add the feed in the store
 - build the user card on the feed
+- edit profile feature 
+- show toast message on save of profile 
+
+
+
+
+4th lecture -> 
+see all my connections 
