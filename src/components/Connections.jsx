@@ -14,10 +14,8 @@ const Connections = () => {
         withCredentials: true,
       });
 
-      console.log(res.data.data);
       dispatch(addConnections(res.data.data));
     } catch (err) {
-      // handle error case
       console.log(err);
     }
   };
@@ -26,22 +24,23 @@ const Connections = () => {
     fetchConnections();
   }, []);
 
-  if (!connections) {
-    return;
+  if (connections.length === 0) {
+    return <h1 className="text-center my-10">No Connections Found</h1>;
   }
-  if (connections.length === 0) return <h1>No connections Found</h1>;
 
   return (
     <div className="text-center justify-center my-10">
-      <h1 className="text-bold text-2xl ">Connections</h1>
+      <h1 className="text-bold text-2xl">Connections</h1>
+
       {connections.map((connection) => {
         const { _id, firstName, lastName, photoUrl, age, gender, about } =
           connection;
+
         return (
           <div key={_id} className="m-4 p-4 rounded-lg bg-base-200">
-            <img alt="photo" className="w-20 h-20" src={connection.photoUrl} />
-            <h2>{firstName + " " + lastName}</h2>
-            {age && gender && <p>{age + " , " + gender}</p>}
+            <img alt="photo" className="w-20 h-20 object-cover" src={photoUrl} />
+            <h2>{firstName} {lastName}</h2>
+            {age !== undefined && gender && <p>{age}, {gender}</p>}
             <p>{about}</p>
           </div>
         );

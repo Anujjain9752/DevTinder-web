@@ -48,7 +48,7 @@ feture - to accpet and reject conenction request
 
 
 
-remaning -> 
+5th lecture => 
 send / ignore the user card form the feed
 signup new user
 e2e testing
