@@ -74,39 +74,102 @@ const Chat = () => {
     setNewMessage("");
   };
 
-  return (
-    <div className="w-3/4 mx-auto my-10 p-5 border border-gray-600 m-5 h-[70vh] flex flex-col">
-      <h1 className="p-5 border-b border-gray-500">Chat</h1>
+  // return (
+  //   <div className="w-3/4 mx-auto my-10 p-5 border border-gray-600 m-5 h-[70vh] flex flex-col">
+  //     <h1 className="p-5 border-b border-gray-500">Chat</h1>
 
-      <div className="flex-1 overflow-scroll p-5">
+  //     <div className="flex-1 overflow-scroll p-5">
+  //       {messages.map((msg, index) => {
+  //         return (
+  //           <div key={index} className="chat chat-start">
+  //             <div className="chat-header">
+  //               {msg.firstName + " " + msg.lastName}
+  //               <time className="text-xs opacity-50">2 hours ago</time>
+  //             </div>
+  //             <div className="chat-bubble">{msg.text}</div>
+
+  //             <div className="chat-footer opacity-50">Seen</div>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+
+  //     <div className="p-5 border-t border-gray-500">
+  //       <input
+  //         value={newMessage}
+  //         onChange={(e) => setNewMessage(e.target.value)}
+  //         type="text"
+  //         className="input input-bordered w-full"
+  //       />
+  //       <button onClick={sendMessage} className="btn btn-primary mt-2">
+  //         Send
+  //       </button>
+  //     </div>
+  //   </div>
+  // );
+
+
+return (
+  <div className="min-h-screen bg-base-200 flex justify-center items-center px-4 py-6">
+    <div className="w-full max-w-4xl bg-base-100 shadow-xl rounded-2xl flex flex-col h-[80vh] overflow-hidden">
+
+      {/* Header */}
+      <div className="px-6 py-4 border-b border-base-300">
+        <h1 className="text-xl font-semibold">Chat</h1>
+      </div>
+
+      {/* Messages Area */}
+      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
         {messages.map((msg, index) => {
-          return (
-            <div key={index} className="chat chat-start">
-              <div className="chat-header">
-                {msg.firstName + " " + msg.lastName}
-                <time className="text-xs opacity-50">2 hours ago</time>
-              </div>
-              <div className="chat-bubble">{msg.text}</div>
+          const isMyMessage = msg.firstName === user.firstName;
 
-              <div className="chat-footer opacity-50">Seen</div>
+          return (
+            <div
+              key={index}
+              className={`chat ${
+                isMyMessage ? "chat-end" : "chat-start"
+              }`}
+            >
+              <div className="chat-header text-sm opacity-70">
+                {msg.firstName} {msg.lastName}
+              </div>
+
+              <div
+                className={`chat-bubble ${
+                  isMyMessage
+                    ? "chat-bubble-primary"
+                    : "chat-bubble-neutral"
+                }`}
+              >
+                {msg.text}
+              </div>
             </div>
           );
         })}
       </div>
 
-      <div className="p-5 border-t border-gray-500">
-        <input
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          type="text"
-          className="input input-bordered w-full"
-        />
-        <button onClick={sendMessage} className="btn btn-primary mt-2">
-          Send
-        </button>
+      {/* Input Area */}
+      <div className="border-t border-base-300 p-4">
+        <div className="flex gap-3">
+          <input
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+            type="text"
+            placeholder="Type a message..."
+            className="input input-bordered flex-1 focus:ring-2 focus:ring-primary"
+          />
+          <button
+            onClick={sendMessage}
+            className="btn btn-primary px-6"
+          >
+            Send
+          </button>
+        </div>
       </div>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default Chat;
