@@ -52,3 +52,11 @@ feture - to accpet and reject conenction request
 send / ignore the user card form the feed
 signup new user
 e2e testing
+
+
+
+# RealTime chat using websockets , and lib we are using is socket.io
+
+- build the ui for a chat window on /chat/:targetUserId
+- set up socket.io on backend 
+- 
